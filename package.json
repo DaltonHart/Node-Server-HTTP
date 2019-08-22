@@ -1,0 +1,12 @@
+{
+  "name": "nodeservernoexpress",
+  "version": "1.0.0",
+  "description": "Single Server Route No Express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Dalton Hart",
+  "license": "MIT"
+}
