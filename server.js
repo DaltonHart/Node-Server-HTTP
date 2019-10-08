@@ -19,20 +19,13 @@ server.on("request", (request, response) => {
   });
 
   // establish a route
-  if (request.method === "POST" && request.url === "/echo") {
-    // start body content
-    let body = [];
-    request
-      .on("data", chunk => {
-        //load the body data and pull out check
-        body.push(chunk);
-      })
-      .on("end", () => {
-        // convert all body data into string to send with response
-        body = Buffer.concat(body).toString();
-        // send response with body
-        response.end(body);
-      });
+  if (request.method === "GET" && request.url === "/") {
+    response.statusCode = 200;
+    response.setHeader("Content-Type", "text/plain");
+    response.end("Hello World");
+  } else if (request.method === "GET" && request.url === "/status") {
+    response.writeHead(200, { "Content-type": "application/json" });
+    response.end(JSON.stringify({status: 'online'}));
   } else {
     response.statusCode = 404;
     response.end();
